@@ -10,6 +10,8 @@ import io.github.bonigarcia.wdm.DriverManagerType;
  */
 public final class Browser {
 
+    private final static String BROWSER_SIZE = "1340x768";
+
     /**
      * The default constructor.
      */
@@ -26,18 +28,22 @@ public final class Browser {
      */
     public static void selectBrowser(final String browser) {
 
-        if (browser.equals("chrome")) {
+        if ("chrome".equals(browser)) {
             Configuration.browser = "Chrome";
             ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
-        } else if (browser.equals("firefox")) {
+            Configuration.browserSize = BROWSER_SIZE;
+        } else if ("firefox".equals(browser)) {
             Configuration.browser = "firefox";
             ChromeDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-        } else if (browser.equals("opera")) {
+            Configuration.browserSize = BROWSER_SIZE;
+        } else if ("opera".equals(browser)) {
             Configuration.browser = "opera";
             ChromeDriverManager.getInstance(DriverManagerType.OPERA).setup();
-        } else if (browser.equals("edge")) {
+            Configuration.browserSize = BROWSER_SIZE;
+        } else if ("edge".equals(browser)) {
             Configuration.browser = "edge";
             ChromeDriverManager.getInstance(DriverManagerType.EDGE).setup();
+            Configuration.browserSize = BROWSER_SIZE;
         } else {
             throw new IllegalStateException(" Browser " + browser + " not supported in this tests. ");
         }

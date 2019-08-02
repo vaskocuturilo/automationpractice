@@ -6,8 +6,7 @@ import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
 import org.testng.annotations.Parameters;
 
-import static com.codeborne.selenide.WebDriverRunner.clearBrowserCache;
-import static com.codeborne.selenide.WebDriverRunner.closeWebDriver;
+import static com.codeborne.selenide.WebDriverRunner.*;
 import static utils.Browser.selectBrowser;
 import static utils.PropertiesReader.loadProperty;
 
@@ -16,12 +15,19 @@ import static utils.PropertiesReader.loadProperty;
  */
 public class BaseClass {
 
-
     /**
      * The private value baseUrl.
      */
-    private static String baseUrl;
+    private String baseUrl;
 
+    /**
+     * Default constructor.
+     */
+    public BaseClass() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Before test.
@@ -36,10 +42,10 @@ public class BaseClass {
         clearBrowserCache();
         switch (env) {
             case "uat":
-                baseUrl = loadProperty("UI_BASE_URL");
+                baseUrl = loadProperty("BASE_URL");
                 break;
             case "prod":
-                baseUrl = loadProperty("PROD_UI_BASE_URL");
+                baseUrl = loadProperty("PROD_URL");
                 break;
             default:
                 //Do nothing
