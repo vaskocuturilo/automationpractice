@@ -7,10 +7,19 @@ import pages.LandingPage;
 
 public class WebUITests extends BaseClass {
 
+    private static final String CRED_USER = "Anton Smirnov";
+    private String userEmail = "hf_test@qa.team";
+    private String userPassword = "12345678";
+
     @Test
     @Story("Proceed to order")
     public void orderTest() {
         new LandingPage()
-                .sighInOnLandingPage();
+                .sighInOnLandingPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .assertSuccessLogin(CRED_USER)
+                .clickSignOut();
     }
 }
