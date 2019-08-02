@@ -34,7 +34,12 @@ public class CreateAccountPage {
     public AccountPage fillData(final String registerData) {
         final UserData userData = getJsonData(registerData);
         $("input[id='customer_firstname']").setValue(userData.firstName);
-
+        $("input[id='customer_lastname']").setValue(userData.lastName);
+        $("input[id='passwd']").setValue(userData.password);
+        $("select[id='days']").selectOptionByValue(userData.birthDay.day);
+        $("select[id='months']").selectOptionByValue(userData.birthDay.month);
+        $("select[id='years']").selectOptionByValue(userData.birthDay.year);
+        $("select[id='id_state']").selectOptionContainingText(userData.stateId);
 
         return new AccountPage();
     }
