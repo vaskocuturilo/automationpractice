@@ -36,10 +36,10 @@ public class BaseClass {
         clearBrowserCache();
         switch (env) {
             case "uat":
-                baseUrl = loadProperty("");
+                baseUrl = loadProperty("UI_BASE_URL");
                 break;
             case "prod":
-                baseUrl = loadProperty("");
+                baseUrl = loadProperty("PROD_UI_BASE_URL");
                 break;
             default:
                 //Do nothing

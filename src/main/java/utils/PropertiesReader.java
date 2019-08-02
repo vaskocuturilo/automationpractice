@@ -25,7 +25,7 @@ public final class PropertiesReader {
     /**
      * Constant PROP_FILE.
      */
-    private static final String PROP_FILE = "testdata.properties";
+    private static final String PROP_FILE = "test.properties";
 
     /**
      * Default private constructor PropertiesReader.
