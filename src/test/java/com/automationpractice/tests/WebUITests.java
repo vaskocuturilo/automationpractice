@@ -11,6 +11,6 @@ public class WebUITests extends BaseClass {
     @Story("Proceed to order")
     public void orderTest() {
         new LandingPage()
-                .clickLoginButton();
+                .sighInOnLandingPage();
     }
 }

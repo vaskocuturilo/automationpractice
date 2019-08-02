@@ -72,6 +72,8 @@ fabric.properties
 
 # IntelliJ project files
 .idea
+.build
+.allure-results
 *.iml
 out
 gen
