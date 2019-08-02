@@ -10,6 +10,9 @@ import io.github.bonigarcia.wdm.DriverManagerType;
  */
 public final class Browser {
 
+    /**
+     * Constant value BROWSER SIZE.
+     */
     private final static String BROWSER_SIZE = "1340x768";
 
     /**

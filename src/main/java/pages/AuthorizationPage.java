@@ -30,7 +30,7 @@ public class AuthorizationPage {
     @NotNull
     private String createEmailForNewUser() {
 
-        String todayData = String.valueOf(new Date().getTime());
+        final String todayData = String.valueOf(new Date().getTime());
 
         return "hf_test" + todayData + "@qa.team";
     }
@@ -52,11 +52,11 @@ public class AuthorizationPage {
      *
      * @return the authorization page
      */
-    public AuthorizationPage clickCreateAccountButton() {
+    public CreateAccountPage clickCreateAccountButton() {
 
         $("button[id='SubmitCreate']").click();
 
-        return this;
+        return new CreateAccountPage();
     }
 
 
@@ -66,7 +66,7 @@ public class AuthorizationPage {
      * @param userEmail the user email
      * @return the authorization page
      */
-    public AuthorizationPage enterUserEmail(String userEmail) {
+    public AuthorizationPage enterUserEmail(final String userEmail) {
         $("input[id='email']").setValue(userEmail);
 
         return this;
@@ -78,7 +78,7 @@ public class AuthorizationPage {
      * @param userPassword the user password
      * @return the authorization page
      */
-    public AuthorizationPage enterUserPassword(String userPassword) {
+    public AuthorizationPage enterUserPassword(final String userPassword) {
         $("input[id='passwd']").setValue(userPassword);
 
         return this;

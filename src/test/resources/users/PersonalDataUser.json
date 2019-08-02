@@ -1,0 +1,26 @@
+{
+  "gender": "femail",
+  "firstName": "Test",
+  "lastName": "Test",
+  "email": "JohnDoeForTest@qateam.com",
+  "password": "Password2019",
+  "birthday": {
+    "year": "2000",
+    "month": "1",
+    "day": "1"
+  },
+  "addressFirstName": "JohnAdress",
+  "addressLastName": "DoeAdress",
+  "company": "Corp",
+  "address1": "addres1",
+  "address2": "addres2",
+  "country": "United States",
+  "city": "Mowcow",
+  "stateId": "Alabama",
+  "postcode": "18800",
+  "other": "test",
+  "phone": "12345123123",
+  "phoneMobile": "12345123123",
+  "alias": "test",
+  "submitAccount": "test"
+}

@@ -1,5 +1,7 @@
 package utils;
 
+import com.google.common.base.Charsets;
+import com.google.common.io.Resources;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -67,4 +69,24 @@ public final class PropertiesReader {
 
         return getProperty(name);
     }
+
+
+    /**
+     * Method loadProperty.
+     *
+     * @param resourcePath String name file.
+     * @return resourceString.
+     */
+    public static String getResourceAsString(final String resourcePath) {
+        String resourceString = "";
+        try {
+            resourceString = Resources.toString(Resources.getResource(resourcePath), Charsets.UTF_8);
+        } catch (IOException e) {
+            if (LOGGER.isDebugEnabled()) {
+                LOGGER.debug("Failed to read resource as string: " + resourcePath, e);
+            }
+        }
+        return resourceString;
+    }
+
 }

@@ -18,7 +18,7 @@ public class BaseClass {
     /**
      * The private value baseUrl.
      */
-    private String baseUrl;
+    String baseUrl;
 
     /**
      * Default constructor.

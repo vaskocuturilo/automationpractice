@@ -30,6 +30,7 @@ public class WebUITests extends BaseClass {
         new LandingPage()
                 .sighinAuthenticationPage()
                 .addEmailForUser()
-                .clickCreateAccountButton();
+                .clickCreateAccountButton()
+                .fillData("PersonalDataUser");
     }
 }
