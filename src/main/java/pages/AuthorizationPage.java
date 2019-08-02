@@ -1,5 +1,7 @@
 package pages;
 
+import com.sun.istack.NotNull;
+
 import java.util.Date;
 
 import static com.codeborne.selenide.Selenide.$;
@@ -25,6 +27,7 @@ public class AuthorizationPage {
      *
      * @return the authorization page
      */
+    @NotNull
     private String createEmailForNewUser() {
 
         String todayData = String.valueOf(new Date().getTime());
@@ -40,6 +43,18 @@ public class AuthorizationPage {
     public AuthorizationPage addEmailForUser() {
 
         $("input[id='email_create']").setValue(createEmailForNewUser());
+
+        return this;
+    }
+
+    /**
+     * Create account for new user
+     *
+     * @return the authorization page
+     */
+    public AuthorizationPage clickCreateAccountButton() {
+
+        $("button[id='SubmitCreate']").click();
 
         return this;
     }

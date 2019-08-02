@@ -26,10 +26,10 @@ public class WebUITests extends BaseClass {
 
     @Test
     @Story("Create new user")
-    public void createUser(){
+    public void createUser() {
         new LandingPage()
                 .sighinAuthenticationPage()
                 .addEmailForUser()
-                .clickSignInButton();
+                .clickCreateAccountButton();
     }
 }
