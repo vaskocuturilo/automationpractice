@@ -16,18 +16,22 @@ import static utils.PropertiesReader.loadProperty;
  */
 public class BaseClass {
 
+
+    /**
+     * The private value baseUrl.
+     */
     private static String baseUrl;
 
 
     /**
      * Before test.
      *
-     * @param env     the env
-     * @param browser the browser
+     * @param env     the env.
+     * @param browser the browser.
      */
     @Parameters({"env", "browser"})
     @BeforeMethod(alwaysRun = true)
-    public void beforeTest(@Optional("uat") String env, @Optional("chrome") String browser) {
+    public void beforeTest(@Optional("uat") final String env, @Optional("chrome") final String browser) {
         selectBrowser(browser);
         clearBrowserCache();
         switch (env) {
@@ -36,6 +40,9 @@ public class BaseClass {
                 break;
             case "prod":
                 baseUrl = loadProperty("");
+                break;
+            default:
+                //Do nothing
         }
 
         Selenide.open(baseUrl);

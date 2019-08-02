@@ -8,14 +8,23 @@ import io.github.bonigarcia.wdm.DriverManagerType;
 /**
  * The type Browser.
  */
-public class Browser {
+public final class Browser {
+
+    /**
+     * The default constructor.
+     */
+    private Browser() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Select browser.
      *
-     * @param browser the browser
+     * @param browser the browser.
      */
-    public static void selectBrowser(String browser) {
+    public static void selectBrowser(final String browser) {
 
         if (browser.equals("chrome")) {
             Configuration.browser = "Chrome";
