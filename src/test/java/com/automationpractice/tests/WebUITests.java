@@ -15,11 +15,21 @@ public class WebUITests extends BaseClass {
     @Story("Proceed to order")
     public void orderTest() {
         new LandingPage()
-                .sighInOnLandingPage()
+                .sighinAuthenticationPage()
                 .enterUserEmail(userEmail)
                 .enterUserPassword(userPassword)
                 .clickSignInButton()
                 .assertSuccessLogin(CRED_USER)
                 .clickSignOut();
+    }
+
+
+    @Test
+    @Story("Create new user")
+    public void createUser(){
+        new LandingPage()
+                .sighinAuthenticationPage()
+                .addEmailForUser()
+                .clickSignInButton();
     }
 }

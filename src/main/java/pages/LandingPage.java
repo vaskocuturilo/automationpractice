@@ -21,7 +21,7 @@ public class LandingPage {
      *
      * @return the authorization page
      */
-    public AuthorizationPage sighInOnLandingPage() {
+    public AuthorizationPage sighinAuthenticationPage() {
         $(".login").click();
         return new AuthorizationPage();
     }
