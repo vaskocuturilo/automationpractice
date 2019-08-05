@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 /**
  * The type Post controllers.
  */
-public class PostControllers {
+public class PostControllers extends AbstractController {
 
     /**
      * Private value post.
@@ -33,7 +33,6 @@ public class PostControllers {
         super();
         this.newPost = post;
     }
-
 
     /**
      * Gets element.

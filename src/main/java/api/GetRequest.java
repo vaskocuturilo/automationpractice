@@ -5,7 +5,7 @@ import io.restassured.RestAssured;
 /**
  * The type Get request.
  */
-public final class GetRequest extends AbstractController {
+public final class GetRequest {
 
 
     /**

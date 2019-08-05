@@ -13,7 +13,7 @@ import static utils.PropertiesReader.loadProperty;
 /**
  * The type Base class.
  */
-public class BaseWebClass {
+public class BaseWeb {
 
     /**
      * The private value baseUrl.
@@ -23,7 +23,7 @@ public class BaseWebClass {
     /**
      * Default constructor.
      */
-    public BaseWebClass() {
+    public BaseWeb() {
         super();
         //empty
         return;

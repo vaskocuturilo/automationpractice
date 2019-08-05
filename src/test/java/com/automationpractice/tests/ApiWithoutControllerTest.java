@@ -2,7 +2,7 @@ package com.automationpractice.tests;
 
 import api.ApiJson;
 import api.schema.CountryCode;
-import base.BaseApiClass;
+import base.BaseApi;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
 import listener.LogListener;
@@ -18,7 +18,7 @@ import static org.testng.Assert.assertTrue;
 
 @Listeners(LogListener.class)
 @Feature("API automation scripts")
-public class ApiWithoutControllerTest extends BaseApiClass {
+public class ApiWithoutControllerTest extends BaseApi {
     private static final String GET_ALL_COUNTRY = "/rest/v2/all";
 
     @Test
