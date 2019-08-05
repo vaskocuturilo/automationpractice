@@ -2,18 +2,40 @@ package api;
 
 import io.restassured.RestAssured;
 
-public class GetRequest {
+
+/**
+ * The type Get request.
+ */
+public final class GetRequest {
 
 
+    /**
+     * Constant SUCCESS.
+     */
     private static final int SUCCESS = 200;
 
-    public static String postGetRequest(String url) {
-        String json = RestAssured
+    /**
+     * Default constructor.
+     */
+    private GetRequest() {
+        super();
+        //empty
+        return;
+    }
+
+    /**
+     * Post get request string.
+     *
+     * @param url the url
+     * @return the string
+     */
+    public static String getAllCountries(final String url) {
+        final String json = RestAssured
                 .given()
                 .then()
                 .statusCode(SUCCESS)
                 .log()
-                .all().when().get(url).getBody().toString();
+                .all().when().get(url).getBody().asString();
 
         return json;
     }

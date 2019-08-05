@@ -5,9 +5,24 @@ import org.testng.annotations.BeforeMethod;
 
 import static utils.PropertiesReader.loadProperty;
 
+
+/**
+ * The type Base api class.
+ */
 public class BaseApiClass {
 
+    /**
+     * Default Constructor.
+     */
+    public BaseApiClass() {
+        super();
+        //empty
+        return;
+    }
 
+    /**
+     * Before test.
+     */
     @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
 

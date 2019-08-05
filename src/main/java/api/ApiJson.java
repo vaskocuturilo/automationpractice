@@ -1,33 +1,66 @@
 package api;
 
-import api.schema.Post;
+import api.schema.CountryCode;
 import io.restassured.path.json.JsonPath;
 
 import java.util.List;
 
-public class ApiJson {
+
+/**
+ * The type Api json.
+ */
+public final class ApiJson {
 
 
-    private static final String JSON_PATH = "RestResponse.result";
+    /**
+     * Constant JSON_PATH.
+     */
+    private static final String JSON_PATH = "";
 
+    /**
+     * Value jsonPath.
+     */
     private final JsonPath jsonPath;
 
-    private ApiJson(String json) {
+
+    /**
+     * Constructor ApiJson.
+     *
+     * @param json json file.
+     */
+
+    private ApiJson(final String json) {
         this.jsonPath = JsonPath.from(json);
     }
 
-    public static ApiJson from(String json) {
+    /**
+     * From api json.
+     *
+     * @param json the json
+     * @return the api json
+     */
+    public static ApiJson from(final String json) {
         return new ApiJson(json);
     }
 
 
-    public Post getPost() {
+    /**
+     * Gets post.
+     *
+     * @return the post
+     */
+    public CountryCode getPost() {
 
-        return jsonPath.getObject(JSON_PATH, Post.class);
+        return jsonPath.getObject(JSON_PATH, CountryCode.class);
     }
 
-    public List<Post> getAllPosts() {
-        return jsonPath.getList(JSON_PATH, Post.class);
+    /**
+     * Gets all posts.
+     *
+     * @return the all posts
+     */
+    public List<CountryCode> getAllCountriesCodes() {
+        return jsonPath.getList(JSON_PATH, CountryCode.class);
     }
 
 }

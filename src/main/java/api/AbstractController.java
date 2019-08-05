@@ -1,5 +1,6 @@
 package api;
 
+import com.google.common.annotations.VisibleForTesting;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -9,20 +10,36 @@ import io.restassured.parsing.Parser;
 import org.hamcrest.Matchers;
 
 
-public class AbstractController {
+/**
+ * Abstract class.
+ */
+
+@SuppressWarnings("PMD.DefaultPackage")
+public abstract class AbstractController {
+
+    /**
+     * Constant for TIME OUT.
+     */
+    private static final long TIME_OUT = 15000L;
 
     static {
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .addHeader("Content-type", "application/json; charset=UTF-8")
-                .setBaseUri("")
+                .setBaseUri("https://jsonplaceholder.typicode.com/posts")
                 .setContentType(ContentType.JSON).log(LogDetail.ALL)
                 .build();
 
         RestAssured.responseSpecification = new ResponseSpecBuilder()
                 .expectContentType(ContentType.JSON)
-                .expectResponseTime(Matchers.lessThan(15000L))
+                .expectResponseTime(Matchers.lessThan(TIME_OUT))
                 .build();
 
         RestAssured.defaultParser = Parser.JSON;
+    }
+
+    public AbstractController() {
+        super();
+        //empty
+        return;
     }
 }
