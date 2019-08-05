@@ -1,6 +1,7 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
 
@@ -11,7 +12,26 @@ import static com.codeborne.selenide.Selenide.$;
 public class AccountPage {
 
     /**
-     * Instantiates a new Account page.
+     * Constant DELAY.
+     */
+    private static final int DELAY = 5000;
+
+
+    /**
+     * Constant MY_ACCOUNT.
+     */
+    private static final String MY_ACCOUNT = "My account";
+
+    /**
+     * Selenide elements.
+     */
+    private final SelenideElement
+            account = $("[class='account'] span"),
+            pageHeading = $("div[id='center_column'] h1"),
+            logout = $("[class='logout']");
+
+    /**
+     * Default constructor.
      */
     public AccountPage() {
         super();
@@ -26,15 +46,17 @@ public class AccountPage {
      * @param credUser the cred user
      * @return the account page
      */
-    public AccountPage assertSuccessLogin(final String credUser){
+    public AccountPage assertSuccessLogin(final String credUser) {
 
-        $("[class='account'] span").shouldHave(Condition.text(credUser));
+        account
+                .waitUntil(Condition.visible, DELAY)
+                .shouldHave(Condition.text(credUser));
 
-        $("div[id='center_column'] h1")
-                .waitUntil(Condition.visible,5000)
-                .shouldBe(Condition.text("My account"));
+        pageHeading
+                .waitUntil(Condition.visible, DELAY)
+                .shouldBe(Condition.text(MY_ACCOUNT));
 
-    return this;
+        return this;
     }
 
     /**
@@ -42,9 +64,9 @@ public class AccountPage {
      *
      * @return the account page
      */
-    public AccountPage clickSignOut(){
-        $("[class='logout']").click();
+    public AccountPage clickSignOut() {
+        logout.click();
 
-    return this;
+        return this;
     }
 }

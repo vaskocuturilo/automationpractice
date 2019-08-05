@@ -10,67 +10,68 @@ import lombok.Getter;
 public class UserData {
 
     /**
-     * The Gender.
-     */
-    String gender;
-    /**
      * The First name.
      */
-    String firstName;
+    private String firstName;
     /**
      * The Last name.
      */
-    String lastName;
-    /**
-     * The Email.
-     */
-    String email;
+    private String lastName;
     /**
      * The Password.
      */
-    String password;
-    /**
-     * The Birth day.
-     */
-    UserBirthday birthDay;
+    private String password;
     /**
      * The First address.
      */
-    String firstAddress;
+    private String firstAddress;
     /**
      * The Second address.
      */
-    String secondAddress;
+    private String secondAddress;
     /**
      * The City.
      */
-    String city;
+    private String city;
     /**
      * The State id.
      */
-    String stateId;
+    private String stateId;
+    /**
+     * The company.
+     */
+    private String company;
     /**
      * The Zip code.
      */
-    String zipCode;
+    private String postcode;
     /**
      * The Country.
      */
-    String country;
+    private String country;
     /**
-     * The Additional information.
+     * The other.
      */
-    String additionalInformation;
+    private String other;
     /**
      * The Home phone.
      */
-    String homePhone;
+    private String phone;
     /**
      * The Mobile phone.
      */
-    String mobilePhone;
+    private String mobilePhone;
     /**
      * The Alias.
      */
-    String alias;
+    private String alias;
+
+    /**
+     * Default constructor.
+     */
+    public UserData() {
+        super();
+        //empty
+        return;
+    }
 }

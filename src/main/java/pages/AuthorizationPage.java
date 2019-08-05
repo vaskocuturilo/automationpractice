@@ -48,7 +48,7 @@ public class AuthorizationPage {
     }
 
     /**
-     * Create account for new user
+     * Create account for new user.
      *
      * @return the authorization page
      */

@@ -13,7 +13,7 @@ public final class Browser {
     /**
      * Constant value BROWSER SIZE.
      */
-    private final static String BROWSER_SIZE = "1340x768";
+    private static final String BROWSER_SIZE = "1340x768";
 
     /**
      * The default constructor.
