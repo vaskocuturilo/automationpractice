@@ -1,11 +1,11 @@
 package com.automationpractice.tests;
 
-import base.BaseClass;
+import base.BaseWebClass;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import pages.LandingPage;
 
-public class WebUITests extends BaseClass {
+public class WebUITest extends BaseWebClass {
 
     private static final String CRED_USER = "Anton Smirnov";
     private String userEmail = "hf_test@qa.team";

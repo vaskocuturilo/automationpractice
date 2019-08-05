@@ -3,7 +3,7 @@
 <suite name="Smoke tests">
     <test name="UI tests">
         <classes>
-            <class name="com.automationpractice.tests.WebUITests"/>
+            <class name="com.automationpractice.tests.WebUITest"/>
         </classes>
     </test>
 </suite>
