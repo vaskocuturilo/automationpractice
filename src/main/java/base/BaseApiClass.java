@@ -11,6 +11,6 @@ public class BaseApiClass {
     @BeforeMethod(alwaysRun = true)
     public void beforeTest() {
 
-        RestAssured.baseURI = loadProperty("");
+        RestAssured.baseURI = loadProperty("API_BASE_URL");
     }
 }
