@@ -5,6 +5,8 @@ import api.schema.CountryCode;
 import base.BaseApiClass;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import listener.LogListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 import static api.GetRequest.getAllCountries;
 import static org.testng.Assert.assertTrue;
 
+@Listeners(LogListener.class)
 @Feature("API automation scripts")
 public class ApiWithoutControllerTest extends BaseApiClass {
     private static final String GET_ALL_COUNTRY = "/rest/v2/all";

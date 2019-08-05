@@ -2,11 +2,10 @@ package api;
 
 import io.restassured.RestAssured;
 
-
 /**
  * The type Get request.
  */
-public final class GetRequest {
+public final class GetRequest extends AbstractController {
 
 
     /**
@@ -34,8 +33,7 @@ public final class GetRequest {
                 .given()
                 .then()
                 .statusCode(SUCCESS)
-                .log()
-                .all().when().get(url).getBody().asString();
+                .log().all().when().get(url).getBody().asString();
 
         return json;
     }

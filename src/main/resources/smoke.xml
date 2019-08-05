@@ -4,8 +4,8 @@
     <test name="UI tests">
         <classes>
             <class name="com.automationpractice.tests.WebUITest"/>
-            <class name="com.automationpractice.tests.ApiWithControllerTest"/>
             <class name="com.automationpractice.tests.ApiWithoutControllerTest"/>
+            <class name="com.automationpractice.tests.ApiWithControllerTest"/>
 
         </classes>
     </test>

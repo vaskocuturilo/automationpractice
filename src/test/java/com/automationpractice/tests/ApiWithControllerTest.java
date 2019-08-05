@@ -3,8 +3,11 @@ package com.automationpractice.tests;
 import api.controllers.PostControllers;
 import api.schema.Post;
 import io.qameta.allure.Story;
+import listener.LogListener;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 
+@Listeners(LogListener.class)
 public class ApiWithControllerTest {
 
     @org.testng.annotations.Test

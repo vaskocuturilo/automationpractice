@@ -25,7 +25,7 @@ public abstract class AbstractController {
     static {
         RestAssured.requestSpecification = new RequestSpecBuilder()
                 .addHeader("Content-type", "application/json; charset=UTF-8")
-                .setBaseUri("https://jsonplaceholder.typicode.com/posts")
+                .setBaseUri("https://jsonplaceholder.typicode.com/")
                 .setContentType(ContentType.JSON).log(LogDetail.ALL)
                 .build();
 

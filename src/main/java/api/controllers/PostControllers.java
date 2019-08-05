@@ -10,7 +10,7 @@ import static io.restassured.RestAssured.given;
 /**
  * The type Post controllers.
  */
-public class PostControllers extends AbstractController {
+public class PostControllers {
 
     /**
      * Private value post.
