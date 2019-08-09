@@ -90,7 +90,7 @@ public class CreateAccountPage extends UserData {
      * @param registerData the register data
      * @return the account page
      */
-    public AccountPage fillData(final String registerData) {
+    public AccountPage enterFillData(final String registerData) {
         final UserData userData = getJsonData(registerData);
         gender.waitUntil(Condition.visible, DELAY).click();
         firstName.setValue(userData.getFirstName());

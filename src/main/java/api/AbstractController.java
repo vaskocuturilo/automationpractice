@@ -1,6 +1,5 @@
 package api;
 
-import com.google.common.annotations.VisibleForTesting;
 import io.restassured.RestAssured;
 import io.restassured.builder.RequestSpecBuilder;
 import io.restassured.builder.ResponseSpecBuilder;
@@ -37,6 +36,9 @@ public abstract class AbstractController {
         RestAssured.defaultParser = Parser.JSON;
     }
 
+    /**
+     * Default constructor.
+     */
     public AbstractController() {
         super();
         //empty

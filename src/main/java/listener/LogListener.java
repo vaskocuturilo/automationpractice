@@ -12,6 +12,10 @@ import org.testng.ITestResult;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 
+
+/**
+ * The type Log listener.
+ */
 public class LogListener implements ITestListener {
     private ByteArrayOutputStream request = new ByteArrayOutputStream();
     private ByteArrayOutputStream response = new ByteArrayOutputStream();
@@ -20,48 +24,66 @@ public class LogListener implements ITestListener {
     private PrintStream responseVar = new PrintStream(response, true);
 
 
-    public void onStart(ITestContext iTestContext) {
+    public void onStart(final ITestContext iTestContext) {
         RestAssured.filters(new ResponseLoggingFilter(LogDetail.ALL, responseVar),
                 new RequestLoggingFilter(LogDetail.ALL, requestVar));
     }
 
-    public void onTestSuccess(ITestResult iTestResult) {
+    public void onTestSuccess(final ITestResult iTestResult) {
         logRequest(request);
         logResponse(response);
     }
 
-    public void onTestFailure(ITestResult iTestResult) {
+    public void onTestFailure(final ITestResult iTestResult) {
 
     }
 
+    /**
+     * Log request byte [ ].
+     *
+     * @param stream the stream
+     * @return the byte [ ]
+     */
     @Attachment(value = "request")
-    public byte[] logRequest(ByteArrayOutputStream stream) {
+    public byte[] logRequest(final ByteArrayOutputStream stream) {
         return attach(stream);
     }
 
+    /**
+     * Log response byte [ ].
+     *
+     * @param stream the stream
+     * @return the byte [ ]
+     */
     @Attachment(value = "response")
-    public byte[] logResponse(ByteArrayOutputStream stream) {
+    public byte[] logResponse(final ByteArrayOutputStream stream) {
         return attach(stream);
     }
 
-    public byte[] attach(ByteArrayOutputStream log) {
-        byte[] array = log.toByteArray();
+    /**
+     * Attach byte [ ].
+     *
+     * @param log the log
+     * @return the byte [ ]
+     */
+    public byte[] attach(final ByteArrayOutputStream log) {
+        final byte[] array = log.toByteArray();
         log.reset();
         return array;
     }
 
-    public void onTestStart(ITestResult iTestResult) {
+    public void onTestStart(final ITestResult iTestResult) {
     }
 
-    public void onTestSkipped(ITestResult iTestResult) {
-
-    }
-
-    public void onTestFailedButWithinSuccessPercentage(ITestResult iTestResult) {
+    public void onTestSkipped(final ITestResult iTestResult) {
 
     }
 
-    public void onFinish(ITestContext iTestContext) {
+    public void onTestFailedButWithinSuccessPercentage(final ITestResult iTestResult) {
+
+    }
+
+    public void onFinish(final ITestContext iTestContext) {
 
     }
 }

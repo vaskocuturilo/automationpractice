@@ -1,9 +1,12 @@
 package pages;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 
+import static com.codeborne.selenide.Selectors.byText;
 import static com.codeborne.selenide.Selenide.$;
+import static com.codeborne.selenide.Selenide.$x;
 
 
 /**
@@ -22,6 +25,7 @@ public class AccountPage {
      */
     private static final String MY_ACCOUNT = "My account";
 
+
     /**
      * Selenide elements.
      */
@@ -29,16 +33,6 @@ public class AccountPage {
             account = $("[class='account'] span"),
             pageHeading = $("div[id='center_column'] h1"),
             logout = $("[class='logout']");
-
-    /**
-     * Default constructor.
-     */
-    public AccountPage() {
-        super();
-        //empty
-        return;
-    }
-
 
     /**
      * Assert success login account page.
@@ -56,11 +50,21 @@ public class AccountPage {
                 .waitUntil(Condition.visible, DELAY)
                 .shouldBe(Condition.text(MY_ACCOUNT));
 
-        return this;
+        return new AccountPage();
+    }
+
+
+    /**
+     * Default constructor.
+     */
+    public AccountPage() {
+        super();
+        //empty
+        return;
     }
 
     /**
-     * Click sign out account page.
+     * Class click sign out account page.
      *
      * @return the account page
      */
@@ -68,5 +72,19 @@ public class AccountPage {
         logout.click();
 
         return this;
+    }
+
+    /**
+     * Method select Category.
+     *
+     * @param nameCategory name of category.
+     * @return the account page
+     */
+    public StorePage selectCategory(final String nameCategory) {
+
+        $("a[title='" + nameCategory + "']").waitUntil(Condition.enabled, DELAY)
+                .click();
+
+        return new StorePage();
     }
 }
