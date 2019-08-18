@@ -45,11 +45,11 @@ public final class ApiJson {
 
 
     /**
-     * Gets post.
+     * Gets country.
      *
      * @return the post
      */
-    public CountryCode getPost() {
+    public CountryCode getCountryCode() {
 
         return jsonPath.getObject(JSON_PATH, CountryCode.class);
     }

@@ -23,7 +23,7 @@ public final class GetRequest {
     }
 
     /**
-     * Post get request string.
+     * Country get  all request string.
      *
      * @param url the url
      * @return the string
@@ -37,4 +37,21 @@ public final class GetRequest {
 
         return json;
     }
+
+    /**
+     * Country get all country with alpha2code request string.
+     *
+     * @param url the url
+     * @return the string
+     */
+    public static String getAllCountry(final String url, String alpha2Code) {
+        final String json = RestAssured
+                .given()
+                .then()
+                .statusCode(SUCCESS)
+                .log().all().when().get(url + alpha2Code).getBody().asString();
+
+        return json;
+    }
+
 }
