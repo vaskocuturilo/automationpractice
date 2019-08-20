@@ -23,7 +23,7 @@ import static org.testng.Assert.assertTrue;
 @Feature("API automation scripts")
 public class ApiWithoutControllerTest extends BaseApi {
     private static final String GET_ALL_COUNTRY = "/rest/v2/all";
-    private static final String GET_NAME = "/rest/v2/name/";
+    private static final String GET_ALPHA_CODE = "/rest/v2/alpha/";
 
     @Test
     @Story("Get all countries from https://restcountries.eu/rest/v2/all")
@@ -40,18 +40,14 @@ public class ApiWithoutControllerTest extends BaseApi {
     @Test(dataProvider = "verifyCountry", dataProviderClass = DataProviders.class)
     public void testRequestWithSeveralCountries(String name, String alpha2Code, String alpha3Code) {
 
-        final String resultApiJson = getAllCountry(GET_NAME, alpha2Code);
+        final String resultApiJson = getAllCountry(GET_ALPHA_CODE, alpha2Code);
         final ApiJson apiJson = ApiJson.from(resultApiJson);
         final CountryCode result = apiJson.getCountryCode();
 
         assertEquals(result.getName(), name);
         assertEquals(result.getAlpha2Code(), alpha2Code);
         assertEquals(result.getAlpha3Code(), alpha3Code);
-
-
     }
-
-
 }
 
 

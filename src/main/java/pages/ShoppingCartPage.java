@@ -22,8 +22,6 @@ public class ShoppingCartPage {
      */
     private final SelenideElement
 
-            firstItem = $("div[id='center_column'] > ul > li:nth-child(1)"),
-            addToCart = $("p[id='add_to_cart']"),
             proceedToCheckout = $("div[id='center_column'] a[title='Proceed to checkout']");
 
 

@@ -44,7 +44,7 @@ public final class GetRequest {
      * @param url the url
      * @return the string
      */
-    public static String getAllCountry(final String url, String alpha2Code) {
+    public static String getAllCountry(final String url, final String alpha2Code) {
         final String json = RestAssured
                 .given()
                 .then()

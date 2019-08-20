@@ -22,7 +22,7 @@ public class StorePage {
     private final SelenideElement
 
             firstItem = $("div[id='center_column'] > ul > li:nth-child(1)"),
-            addToCart = $("p[id='add_to_cart']"),
+            addToCart = $("div[class='button-container'] [data-id-product='1']"),
             proceedToCheckout = $("a[title='Proceed to checkout']");
 
 
