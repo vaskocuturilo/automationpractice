@@ -2,14 +2,22 @@ package data;
 
 import org.testng.annotations.DataProvider;
 
-public class DataProviders {
+/**
+ * The class type Data providers.
+ */
+public final class DataProviders {
 
-    public DataProviders() {
-        super();
-        //empty
-        return;
+    /**
+     * Default constructor.
+     */
+    private DataProviders() {
     }
 
+    /**
+     * Verify country object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
     @DataProvider(name = "verifyCountry")
     public static Object[][] verifyCountry() {
         return new Object[][]{

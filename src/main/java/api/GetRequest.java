@@ -41,7 +41,8 @@ public final class GetRequest {
     /**
      * Country get all country with alpha2code request string.
      *
-     * @param url the url
+     * @param url        the url.
+     * @param alpha2Code alpha2Code value.
      * @return the string
      */
     public static String getAllCountry(final String url, final String alpha2Code) {
