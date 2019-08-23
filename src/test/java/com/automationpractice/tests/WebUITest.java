@@ -36,7 +36,7 @@ public class WebUITest extends BaseWeb {
     }
 
     @Test
-    @Story("Checks order proceed.")
+    @Story("Check order proceed.")
     public void checkOrderProcessTest() {
         new LandingPage()
                 .openAuthenticationPage()
@@ -49,5 +49,19 @@ public class WebUITest extends BaseWeb {
                 .proceedToOrder()
                 .payOrder()
                 .confirmationOrder();
+    }
+
+    @Test
+    @Story("Check contact us service")
+    public void checkContactUsService() {
+        new LandingPage()
+                .openAuthenticationPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .clickContactUs()
+                .fillTheFormContactUs()
+                .checkThatMessageIsSend();
+
     }
 }

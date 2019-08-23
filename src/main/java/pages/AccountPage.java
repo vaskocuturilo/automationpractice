@@ -29,7 +29,8 @@ public class AccountPage {
     private final SelenideElement
             account = $("[class='account'] span"),
             pageHeading = $("div[id='center_column'] h1"),
-            logout = $("[class='logout']");
+            logout = $("[class='logout']"),
+            contactUs = $("div[id='contact-link']");
 
     /**
      * Assert success login account page.
@@ -83,5 +84,17 @@ public class AccountPage {
                 .click();
 
         return new StorePage();
+    }
+
+    /**
+     * Method clickContactUs.
+     *
+     * @return ContactUsPage.
+     */
+    public ContactUsPage clickContactUs() {
+
+        contactUs.click();
+
+        return new ContactUsPage();
     }
 }
