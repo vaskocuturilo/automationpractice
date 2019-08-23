@@ -97,4 +97,17 @@ public class AccountPage {
 
         return new ContactUsPage();
     }
+
+    /**
+     * Method add search Data.
+     *
+     * @param searchText text for search.
+     * @return the account page
+     */
+    public SearchPage addSearchData(final String searchText) {
+
+        $("input[id='search_query_top']").setValue(searchText).pressEnter();
+
+        return new SearchPage();
+    }
 }

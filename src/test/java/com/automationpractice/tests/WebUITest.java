@@ -64,4 +64,16 @@ public class WebUITest extends BaseWeb {
                 .checkThatMessageIsSend();
 
     }
+
+    @Test
+    @Story("Check prices for items")
+    public void checkPricesForItems() {
+        new LandingPage()
+                .openAuthenticationPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .addSearchData("Dress")
+                .assertSearchData("Price: Lowest first");
+    }
 }
