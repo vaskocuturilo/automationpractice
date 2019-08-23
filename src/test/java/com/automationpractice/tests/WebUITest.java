@@ -52,7 +52,7 @@ public class WebUITest extends BaseWeb {
     }
 
     @Test
-    @Story("Check contact us service")
+    @Story("Check contact us service.")
     public void checkContactUsService() {
         new LandingPage()
                 .openAuthenticationPage()
