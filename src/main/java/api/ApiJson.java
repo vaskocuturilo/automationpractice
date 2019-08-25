@@ -1,6 +1,7 @@
 package api;
 
 import api.schema.CountryCode;
+import api.schema.NonExistentCountry;
 import io.restassured.path.json.JsonPath;
 
 import java.util.List;
@@ -52,6 +53,11 @@ public final class ApiJson {
     public CountryCode getCountryCode() {
 
         return jsonPath.getObject(JSON_PATH, CountryCode.class);
+    }
+
+
+    public NonExistentCountry getNonExistentCountry(){
+        return jsonPath.getObject(JSON_PATH, NonExistentCountry.class);
     }
 
     /**

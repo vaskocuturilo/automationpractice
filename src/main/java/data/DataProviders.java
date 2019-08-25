@@ -26,6 +26,18 @@ public final class DataProviders {
                 {"Afghanistan", "AF", "AFG"}
         };
     }
+
+    /**
+     * Non Existent Country object [ ] [ ].
+     *
+     * @return the object [ ] [ ]
+     */
+    @DataProvider(name = "nonExistentCountry")
+    public static Object[][] nonExistentCountry() {
+        return new Object[][]{
+                {"RR", "404", "Not Found"},
+        };
+    }
 }
 
 
