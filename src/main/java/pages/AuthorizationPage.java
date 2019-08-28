@@ -1,5 +1,6 @@
 package pages;
 
+import com.codeborne.selenide.SelenideElement;
 import com.sun.istack.NotNull;
 
 import java.util.Date;
@@ -11,6 +12,19 @@ import static com.codeborne.selenide.Selenide.$;
  * The type Authorization page.
  */
 public class AuthorizationPage {
+
+
+    /**
+     * The private Selenide Elements.
+     */
+    private SelenideElement
+
+            createEmail = $("input[id='email_create']"),
+            email = $("input[id='email']"),
+            password = $("input[id='passwd']"),
+            createAccount = $("button[id='SubmitCreate']"),
+            submitLogin = $("button[id='SubmitLogin']");
+
 
     /**
      * Instantiates a new Authorization page.
@@ -28,7 +42,7 @@ public class AuthorizationPage {
      * @return the authorization page
      */
     @NotNull
-    private String createEmailForNewUser() {
+    protected static String createEmailForNewUser() {
 
         final String todayData = String.valueOf(new Date().getTime());
 
@@ -42,10 +56,23 @@ public class AuthorizationPage {
      */
     public AuthorizationPage addEmailForUser() {
 
-        $("input[id='email_create']").setValue(createEmailForNewUser());
+        createEmail.setValue(createEmailForNewUser());
 
         return this;
     }
+
+    /**
+     * Enter user password authorization page.
+     *
+     * @param userPassword the user password.
+     * @return the authorization page
+     */
+    public AuthorizationPage enterUserPassword(final String userPassword) {
+        password.setValue(userPassword);
+
+        return this;
+    }
+
 
     /**
      * Create account for new user.
@@ -54,7 +81,7 @@ public class AuthorizationPage {
      */
     public CreateAccountPage clickCreateAccountButton() {
 
-        $("button[id='SubmitCreate']").click();
+        createAccount.click();
 
         return new CreateAccountPage();
     }
@@ -67,22 +94,11 @@ public class AuthorizationPage {
      * @return the authorization page
      */
     public AuthorizationPage enterUserEmail(final String userEmail) {
-        $("input[id='email']").setValue(userEmail);
+        email.setValue(userEmail);
 
         return this;
     }
 
-    /**
-     * Enter user password authorization page.
-     *
-     * @param userPassword the user password
-     * @return the authorization page
-     */
-    public AuthorizationPage enterUserPassword(final String userPassword) {
-        $("input[id='passwd']").setValue(userPassword);
-
-        return this;
-    }
 
     /**
      * Click sign in button account page.
@@ -90,10 +106,8 @@ public class AuthorizationPage {
      * @return the account page
      */
     public AccountPage clickSignInButton() {
-        $("button[id='SubmitLogin']").click();
+        submitLogin.click();
 
         return new AccountPage();
     }
-
-
 }

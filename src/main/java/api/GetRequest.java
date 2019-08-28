@@ -67,7 +67,7 @@ public final class GetRequest {
      * @param nonExistentCountry non existent country.
      * @return the string
      */
-    public static String getNonExistentCountry(String url, String nonExistentCountry) {
+    public static String getNonExistentCountry(final String url, final String nonExistentCountry) {
         final String json = RestAssured
                 .given()
                 .then()

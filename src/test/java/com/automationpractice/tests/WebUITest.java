@@ -66,7 +66,7 @@ public class WebUITest extends BaseWeb {
     }
 
     @Test
-    @Story("Check prices for items")
+    @Story("Check prices for items.")
     public void checkPricesForItems() {
         new LandingPage()
                 .openAuthenticationPage()
@@ -76,4 +76,19 @@ public class WebUITest extends BaseWeb {
                 .addSearchData("Dress")
                 .assertSearchData("Price: Lowest first");
     }
+
+
+    @Test
+    @Story("Check newsletter subscription.")
+    public void checkSubscribedNewsletter() {
+        new LandingPage()
+                .openAuthenticationPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .addNewsletterSubscription();
+
+    }
+
+
 }

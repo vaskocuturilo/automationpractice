@@ -12,7 +12,7 @@ public class NonExistentCountry {
 	@JsonProperty("status")
 	private int status;
 
-	public void setMessage(String message){
+	public void setMessage(final String message){
 		this.message = message;
 	}
 
@@ -20,7 +20,7 @@ public class NonExistentCountry {
 		return message;
 	}
 
-	public void setStatus(int status){
+	public void setStatus(final int status){
 		this.status = status;
 	}
 

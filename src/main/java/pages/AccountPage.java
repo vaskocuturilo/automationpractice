@@ -4,6 +4,7 @@ import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.$;
+import static org.testng.Assert.assertEquals;
 
 
 /**
@@ -24,13 +25,26 @@ public class AccountPage {
 
 
     /**
+     * Constant GREEN_COLOR.
+     */
+    private static final String GREEN_COLOR = "rgba(119, 119, 119, 1";
+
+    /**
+     * Constant CONFIRM_TEXT.
+     */
+    private static final String CONFIRM_TEXT = "Newsletter : You have successfully subscribed to this newsletter.";
+
+
+    /**
      * Selenide elements.
      */
     private final SelenideElement
             account = $("[class='account'] span"),
             pageHeading = $("div[id='center_column'] h1"),
             logout = $("[class='logout']"),
-            contactUs = $("div[id='contact-link']");
+            contactUs = $("div[id='contact-link']"),
+            alertColumn = $("div[id='columns'] [class*='alert']"),
+            newsLetter = $("input[id='newsletter-input']");
 
     /**
      * Assert success login account page.
@@ -109,5 +123,21 @@ public class AccountPage {
         $("input[id='search_query_top']").setValue(searchText).pressEnter();
 
         return new SearchPage();
+    }
+
+    /**
+     * Method addNewsletterSubscription.
+     *
+     * @return the account page
+     */
+    public AccountPage addNewsletterSubscription() {
+
+        newsLetter.setValue(AuthorizationPage.createEmailForNewUser()).pressEnter();
+
+        assertEquals(CONFIRM_TEXT, alertColumn.getText());
+
+        alertColumn.getCssValue("color").contains(GREEN_COLOR);
+
+        return new AccountPage();
     }
 }

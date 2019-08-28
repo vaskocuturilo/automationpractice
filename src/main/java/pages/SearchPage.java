@@ -40,7 +40,7 @@ public class SearchPage {
      * @param typeOfSort the type of sort
      * @return the search page
      */
-    public SearchPage assertSearchData(String typeOfSort) {
+    public SearchPage assertSearchData(final String typeOfSort) {
 
         centerColumn.waitUntil(Condition.visible, DELAY).shouldHave(Condition.text(SEARCH_TEXT));
         centerColumn.waitUntil(Condition.visible, DELAY).shouldHave(Condition.text(RESULTS));
@@ -67,7 +67,7 @@ public class SearchPage {
      * @param typeOfSort the type of sort
      * @return the search page
      */
-    private SearchPage sortProduct(String typeOfSort) {
+    private SearchPage sortProduct(final String typeOfSort) {
 
         selectProductSort.selectOptionContainingText(typeOfSort);
 

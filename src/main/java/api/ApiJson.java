@@ -56,7 +56,12 @@ public final class ApiJson {
     }
 
 
-    public NonExistentCountry getNonExistentCountry(){
+    /**
+     * Method getNonExistentCountry.
+     *
+     * @return the post
+     */
+    public NonExistentCountry getNonExistentCountry() {
         return jsonPath.getObject(JSON_PATH, NonExistentCountry.class);
     }
 
