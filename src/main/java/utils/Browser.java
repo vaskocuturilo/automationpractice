@@ -31,19 +31,19 @@ public final class Browser {
      */
     public static void selectBrowser(final String browser) {
 
-        if ("chrome".equals(browser)) {
+        if ("chrome".equalsIgnoreCase(browser)) {
             Configuration.browser = "Chrome";
             ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
             Configuration.browserSize = BROWSER_SIZE;
-        } else if ("firefox".equals(browser)) {
+        } else if ("firefox".equalsIgnoreCase(browser)) {
             Configuration.browser = "firefox";
             ChromeDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
             Configuration.browserSize = BROWSER_SIZE;
-        } else if ("opera".equals(browser)) {
+        } else if ("opera".equalsIgnoreCase(browser)) {
             Configuration.browser = "opera";
             ChromeDriverManager.getInstance(DriverManagerType.OPERA).setup();
             Configuration.browserSize = BROWSER_SIZE;
-        } else if ("edge".equals(browser)) {
+        } else if ("edge".equalsIgnoreCase(browser)) {
             Configuration.browser = "edge";
             ChromeDriverManager.getInstance(DriverManagerType.EDGE).setup();
             Configuration.browserSize = BROWSER_SIZE;
