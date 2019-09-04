@@ -3,6 +3,7 @@ package api;
 import api.schema.CountryCode;
 import api.schema.NonExistentCountry;
 import io.restassured.path.json.JsonPath;
+import org.json.simple.JSONObject;
 
 import java.util.List;
 
@@ -72,6 +73,22 @@ public final class ApiJson {
      */
     public List<CountryCode> getAllCountriesCodes() {
         return jsonPath.getList(JSON_PATH, CountryCode.class);
+    }
+
+
+    /**
+     * Method for put data with Json Object.
+     *
+     * @return jsonobj to string.
+     */
+    public static String putJson(String name, String alpha2Code, String alpha3Code) {
+        JSONObject jsonObj = new JSONObject();
+
+        jsonObj.put("name", name);
+        jsonObj.put("alpha2_code", alpha2Code);
+        jsonObj.put("alpha3_code", alpha3Code);
+
+        return jsonObj.toString();
     }
 
 }

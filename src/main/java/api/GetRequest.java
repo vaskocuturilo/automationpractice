@@ -1,6 +1,8 @@
 package api;
 
-import io.restassured.RestAssured;
+import io.restassured.response.Response;
+
+import static io.restassured.RestAssured.given;
 
 /**
  * The type Get request.
@@ -34,8 +36,7 @@ public final class GetRequest {
      * @return the string
      */
     public static String getAllCountries(final String url) {
-        final String json = RestAssured
-                .given()
+        final String json = given()
                 .then()
                 .statusCode(SUCCESS)
                 .log().all().when().get(url).getBody().asString();
@@ -51,8 +52,7 @@ public final class GetRequest {
      * @return the string
      */
     public static String getAllCountry(final String url, final String alpha2Code) {
-        final String json = RestAssured
-                .given()
+        final String json = given()
                 .then()
                 .statusCode(SUCCESS)
                 .log().all().when().get(url + alpha2Code).getBody().asString();
@@ -68,12 +68,33 @@ public final class GetRequest {
      * @return the string
      */
     public static String getNonExistentCountry(final String url, final String nonExistentCountry) {
-        final String json = RestAssured
-                .given()
+        final String json = given()
                 .then()
                 .statusCode(BAD_REQUEST)
                 .log().all().when().get(url + nonExistentCountry).getBody().asString();
 
+        return json;
+    }
+
+
+    /**
+     * POST Method getPostSpecific.
+     *
+     * @param url       thi is url for post.
+     * @param name      thi is name for method putJson.
+     * @param alfa2Code this is alfa2Code for method putJson.
+     * @param alfa3Code this is alfa3Code for method putJson.
+     */
+    public static Response getPostSpecific(final String url, String name, String alfa2Code, String alfa3Code) {
+        final Response json = (Response) given()
+                .contentType("application/json")
+                .body(ApiJson.putJson(name, alfa2Code, alfa3Code))
+                .when()
+                .post(url)
+                .then()
+                .assertThat()
+                .statusCode(SUCCESS)
+                .log().all();
         return json;
     }
 

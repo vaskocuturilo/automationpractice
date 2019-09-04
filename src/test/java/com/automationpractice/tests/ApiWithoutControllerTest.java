@@ -7,6 +7,7 @@ import api.schema.CountryCode;
 import base.BaseApi;
 import io.qameta.allure.Feature;
 import io.qameta.allure.Story;
+import io.restassured.response.Response;
 import listener.LogListener;
 import org.hamcrest.Matchers;
 import org.testng.annotations.Listeners;
@@ -24,6 +25,8 @@ import static org.testng.Assert.*;
 public class ApiWithoutControllerTest extends BaseApi {
     private static final String GET_ALL_COUNTRY = "/rest/v2/all";
     private static final String GET_ALPHA_CODE = "/rest/v2/alpha/";
+    private static final String REGISTER = "/rest/v2/register";
+
 
     @Test
     @Story("Get all countries from https://restcountries.eu/rest/v2/all")
@@ -61,7 +64,12 @@ public class ApiWithoutControllerTest extends BaseApi {
 
         assertEquals(result.getStatus(), Matchers.equalTo(statusCode));
         assertEquals(result.getMessage(), Matchers.equalTo(message));
+    }
 
+    @Test
+    @Story("")
+    public void shouldPostSpecific(String name, String alfa2Code, String alfa3Code) {
+        Response resultApiJson = getPostSpecific(REGISTER, name, alfa2Code, alfa3Code);
     }
 }
 
