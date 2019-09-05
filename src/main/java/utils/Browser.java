@@ -30,23 +30,20 @@ public final class Browser {
      * @param browser the browser.
      */
     public static void selectBrowser(final String browser) {
+        Configuration.browserSize = BROWSER_SIZE;
 
         if ("chrome".equalsIgnoreCase(browser)) {
             Configuration.browser = "Chrome";
             ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
-            Configuration.browserSize = BROWSER_SIZE;
         } else if ("firefox".equalsIgnoreCase(browser)) {
             Configuration.browser = "firefox";
             ChromeDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
-            Configuration.browserSize = BROWSER_SIZE;
         } else if ("opera".equalsIgnoreCase(browser)) {
             Configuration.browser = "opera";
             ChromeDriverManager.getInstance(DriverManagerType.OPERA).setup();
-            Configuration.browserSize = BROWSER_SIZE;
         } else if ("edge".equalsIgnoreCase(browser)) {
             Configuration.browser = "edge";
             ChromeDriverManager.getInstance(DriverManagerType.EDGE).setup();
-            Configuration.browserSize = BROWSER_SIZE;
         } else {
             throw new IllegalStateException(" Browser " + browser + " not supported in this tests. ");
         }
