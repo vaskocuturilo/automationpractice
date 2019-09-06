@@ -21,7 +21,7 @@ import static api.GetRequest.*;
 import static org.testng.Assert.*;
 
 @Listeners(LogListener.class)
-@Feature("API automation scripts")
+@Feature("Application program interface automation scripts")
 public class ApiWithoutControllerTest extends BaseApi {
     private static final String GET_ALL_COUNTRY = "/rest/v2/all";
     private static final String GET_ALPHA_CODE = "/rest/v2/alpha/";
@@ -29,7 +29,7 @@ public class ApiWithoutControllerTest extends BaseApi {
 
 
     @Test
-    @Story("Get all countries from https://restcountries.eu/rest/v2/all")
+    @Story("GET all countries from https://restcountries.eu/rest/v2/all")
     public void testRequestWithChosenCountries() {
         final String resultApiJson = getAllCountries(GET_ALL_COUNTRY);
         final ApiJson apiJson = ApiJson.from(resultApiJson);
@@ -42,7 +42,7 @@ public class ApiWithoutControllerTest extends BaseApi {
     }
 
     @Test(dataProvider = "verifyCountry", dataProviderClass = DataProviders.class)
-    @Story("Get countries from https://restcountries.eu/rest/v2/aplha")
+    @Story("GET countries from https://restcountries.eu/rest/v2/aplha")
     public void testRequestWithSeveralCountries(String name, String alpha2Code, String alpha3Code) {
 
         final String resultApiJson = getAllCountry(GET_ALPHA_CODE, alpha2Code);
@@ -56,7 +56,7 @@ public class ApiWithoutControllerTest extends BaseApi {
 
 
     @Test(dataProvider = "nonExistentCountry", dataProviderClass = DataProviders.class)
-    @Story("Get non existent country from https://restcountries.eu/rest/v2/aplha")
+    @Story("GET non existent country from https://restcountries.eu/rest/v2/aplha")
     public void testRequestWithNonExistentCountry(String nonExistentCountry, String statusCode, String message) {
         final String resultApiJson = getNonExistentCountry(GET_ALPHA_CODE, nonExistentCountry);
         final ApiJson apiJson = ApiJson.from(resultApiJson);
@@ -67,9 +67,9 @@ public class ApiWithoutControllerTest extends BaseApi {
     }
 
     @Test
-    @Story("")
-    public void shouldPostSpecific(String name, String alfa2Code, String alfa3Code) {
-        Response resultApiJson = getPostSpecific(REGISTER, name, alfa2Code, alfa3Code);
+    @Story("POST Specific country.")
+    public void shouldPostSpecific(String name, String alpha2Code, String alpha3Code) {
+        Response resultApiJson = getPostSpecific(REGISTER, name, alpha2Code, alpha2Code);
     }
 }
 
