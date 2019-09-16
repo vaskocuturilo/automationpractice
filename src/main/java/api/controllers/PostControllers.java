@@ -54,4 +54,7 @@ public class PostControllers extends AbstractController {
 
         return given(specBuilder.build()).body(post).when().post().as(Post.class);
     }
+
+    @Override
+    public void AbstractController() { }
 }

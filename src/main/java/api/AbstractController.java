@@ -44,4 +44,6 @@ public abstract class AbstractController {
         //empty
         return;
     }
+
+    public abstract void AbstractController();
 }

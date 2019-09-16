@@ -81,8 +81,8 @@ public final class ApiJson {
      *
      * @return jsonobj to string.
      */
-    public static String putJson(String name, String alpha2Code, String alpha3Code) {
-        JSONObject jsonObj = new JSONObject();
+    public static String putJson(final String name, final String alpha2Code, final String alpha3Code) {
+        final JSONObject jsonObj = new JSONObject();
 
         jsonObj.put("name", name);
         jsonObj.put("alpha2_code", alpha2Code);

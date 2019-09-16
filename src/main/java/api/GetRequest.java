@@ -85,7 +85,10 @@ public final class GetRequest {
      * @param alfa2Code this is alfa2Code for method putJson.
      * @param alfa3Code this is alfa3Code for method putJson.
      */
-    public static Response getPostSpecific(final String url, String name, String alfa2Code, String alfa3Code) {
+    public static Response getPostSpecific(final String url,
+                                           final String name,
+                                           final String alfa2Code,
+                                           final String alfa3Code) {
         final Response json = (Response) given()
                 .contentType("application/json")
                 .body(ApiJson.putJson(name, alfa2Code, alfa3Code))
