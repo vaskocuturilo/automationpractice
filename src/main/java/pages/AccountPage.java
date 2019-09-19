@@ -140,4 +140,16 @@ public class AccountPage {
 
         return new AccountPage();
     }
+
+    /**
+     * Method addNewsletterSubscription.
+     *
+     * @return the account page
+     */
+    public StorePage selectSection(final String value) {
+
+        $("li[class='item'] [title='" + value + "']").click();
+
+        return new StorePage();
+    }
 }

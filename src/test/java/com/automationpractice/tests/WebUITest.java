@@ -4,6 +4,7 @@ import base.BaseWeb;
 import io.qameta.allure.Story;
 import org.testng.annotations.Test;
 import pages.LandingPage;
+import pages.SortValues;
 
 public class WebUITest extends BaseWeb {
 
@@ -90,5 +91,16 @@ public class WebUITest extends BaseWeb {
 
     }
 
-
+    @Test
+    @Story("Check list of best sellers.")
+    public void checkBestSellers() {
+        new LandingPage()
+                .openAuthenticationPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .selectSection("Best sellers")
+                .selectSortBy(SortValues.PRICE_LOW)
+                .checkSortResult("asc");
+    }
 }
