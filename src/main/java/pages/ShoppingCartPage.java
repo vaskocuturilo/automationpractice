@@ -24,6 +24,14 @@ public class ShoppingCartPage {
 
             proceedToCheckout = $("div[id='center_column'] a[title='Proceed to checkout']");
 
+    /**
+     * The constructor.
+     */
+    public ShoppingCartPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Proceed to order shopping cart page.

@@ -28,6 +28,14 @@ public class OrderConfirmationPage {
         return this;
     }
 
+    /**
+     * The constructor.
+     */
+    public OrderConfirmationPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Check information order confirmation page.

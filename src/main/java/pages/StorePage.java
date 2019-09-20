@@ -29,6 +29,14 @@ public class StorePage {
             selectProduct = $("div[id='uniform-selectProductSort']"),
             sortBy = $("select[id='selectProductSort']");
 
+    /**
+     * The constructor.
+     */
+    public StorePage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Order first item from catalog store page.

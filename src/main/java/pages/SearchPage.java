@@ -33,6 +33,14 @@ public class SearchPage {
             centerColumn = $("div[id='center_column']"),
             selectProductSort = $("select[id='selectProductSort']");
 
+    /**
+     * The constructor.
+     */
+    public SearchPage() {
+        super();
+        //empty
+        return;
+    }
 
     /**
      * Assert search data search page.
