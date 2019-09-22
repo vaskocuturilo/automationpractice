@@ -144,11 +144,11 @@ public class AccountPage {
     /**
      * Method addNewsletterSubscription.
      *
-     * @return the account page
+     * @return the Store Page.
      */
     public StorePage selectSection(final String value) {
 
-        $("li[class='item'] [title='" + value + "']").click();
+        $("[title='" + value + "']").click();
 
         return new StorePage();
     }

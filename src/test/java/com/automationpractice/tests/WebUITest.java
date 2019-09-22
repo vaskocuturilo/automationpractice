@@ -103,4 +103,16 @@ public class WebUITest extends BaseWeb {
                 .selectSortBy(SortValues.PRICE_LOW)
                 .checkSortResult("asc");
     }
+
+    @Test
+    @Story("Check order history.")
+    public void checkOrderHistory() {
+        new LandingPage()
+                .openAuthenticationPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .selectSection("My orders")
+                .checkOrderHistoryResult();
+    }
 }

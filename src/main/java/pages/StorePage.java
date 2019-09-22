@@ -94,6 +94,18 @@ public class StorePage {
 
 
     /**
+     * Method check history result.
+     *
+     * @return this.
+     */
+    public StorePage checkOrderHistoryResult() {
+
+        assertTrue(url().contains("controller=history"));
+        return this;
+    }
+
+
+    /**
      * Method select sort by option by name.
      *
      * @param sortValues thi is values from enum Sort Values.
