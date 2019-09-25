@@ -144,6 +144,7 @@ public class AccountPage {
     /**
      * Method addNewsletterSubscription.
      *
+     * @param value this is value for selection.
      * @return the Store Page.
      */
     public StorePage selectSection(final String value) {

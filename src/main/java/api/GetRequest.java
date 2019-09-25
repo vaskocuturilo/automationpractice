@@ -84,6 +84,7 @@ public final class GetRequest {
      * @param name      thi is name for method putJson.
      * @param alfa2Code this is alfa2Code for method putJson.
      * @param alfa3Code this is alfa3Code for method putJson.
+     * @return json.
      */
     public static Response getPostSpecific(final String url,
                                            final String name,

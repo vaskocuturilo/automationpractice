@@ -45,5 +45,8 @@ public abstract class AbstractController {
         return;
     }
 
-    public abstract void AbstractController();
+    /**
+     * The abstract method.
+     */
+    public abstract void total();
 }

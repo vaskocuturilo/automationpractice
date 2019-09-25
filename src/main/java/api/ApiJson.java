@@ -79,7 +79,10 @@ public final class ApiJson {
     /**
      * Method for put data with Json Object.
      *
-     * @return jsonobj to string.
+     * @param name       thi is name for request.
+     * @param alpha2Code this is alpha2Code for request.
+     * @param alpha3Code this is alpha3Code for request.
+     * @return jsonObj to string.
      */
     public static String putJson(final String name, final String alpha2Code, final String alpha3Code) {
         final JSONObject jsonObj = new JSONObject();

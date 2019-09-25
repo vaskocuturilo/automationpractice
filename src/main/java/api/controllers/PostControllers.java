@@ -56,5 +56,5 @@ public class PostControllers extends AbstractController {
     }
 
     @Override
-    public void AbstractController() { }
+    public void total() { }
 }
