@@ -115,4 +115,16 @@ public class WebUITest extends BaseWeb {
                 .selectSection("My orders")
                 .checkOrderHistoryResult();
     }
+
+    @Test
+    @Story("Check Site Map.")
+    public void checkSiteMap() {
+        new LandingPage()
+                .openAuthenticationPage()
+                .enterUserEmail(userEmail)
+                .enterUserPassword(userPassword)
+                .clickSignInButton()
+                .selectSection("Sitemap")
+                .checkSiteMapContent();
+    }
 }
