@@ -9,7 +9,6 @@ import static io.restassured.RestAssured.given;
  */
 public final class GetRequest {
 
-
     /**
      * Constant SUCCESS.
      */
@@ -63,15 +62,15 @@ public final class GetRequest {
     /**
      * Country get all country with alpha2code request string.
      *
-     * @param url                the url.
-     * @param nonExistentCountry non existent country.
+     * @param url          the url.
+     * @param nonExCountry non existent country.
      * @return the string
      */
-    public static String getNonExistentCountry(final String url, final String nonExistentCountry) {
+    public static String getNonExistentCountry(final String url, final String nonExCountry) {
         final String json = given()
                 .then()
                 .statusCode(BAD_REQUEST)
-                .log().all().when().get(url + nonExistentCountry).getBody().asString();
+                .log().all().when().get(url + nonExCountry).getBody().asString();
 
         return json;
     }
@@ -82,17 +81,17 @@ public final class GetRequest {
      *
      * @param url       thi is url for post.
      * @param name      thi is name for method putJson.
-     * @param alfa2Code this is alfa2Code for method putJson.
-     * @param alfa3Code this is alfa3Code for method putJson.
+     * @param alpha2Code this is alfa2Code for method putJson.
+     * @param alpha3Code this is alfa3Code for method putJson.
      * @return json.
      */
     public static Response getPostSpecific(final String url,
                                            final String name,
-                                           final String alfa2Code,
-                                           final String alfa3Code) {
+                                           final String alpha2Code,
+                                           final String alpha3Code) {
         final Response json = (Response) given()
                 .contentType("application/json")
-                .body(ApiJson.putJson(name, alfa2Code, alfa3Code))
+                .body(ApiJson.putJson(name, alpha2Code, alpha3Code))
                 .when()
                 .post(url)
                 .then()
