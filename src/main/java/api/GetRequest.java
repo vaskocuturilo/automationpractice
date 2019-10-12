@@ -85,11 +85,11 @@ public final class GetRequest {
      * @param alpha3Code this is alfa3Code for method putJson.
      * @return json.
      */
-    public static Response getPostSpecific(final String url,
+    public static String getPostSpecific(final String url,
                                            final String name,
                                            final String alpha2Code,
                                            final String alpha3Code) {
-        final Response json = (Response) given()
+        final String json = String.valueOf((Response) given()
                 .contentType("application/json")
                 .body(ApiJson.putJson(name, alpha2Code, alpha3Code))
                 .when()
@@ -97,7 +97,7 @@ public final class GetRequest {
                 .then()
                 .assertThat()
                 .statusCode(SUCCESS)
-                .log().all();
+                .log().all());
         return json;
     }
 

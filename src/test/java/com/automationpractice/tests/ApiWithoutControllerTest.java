@@ -69,7 +69,11 @@ public class ApiWithoutControllerTest extends BaseApi {
     @Test
     @Story("POST Specific country.")
     public void shouldPostSpecific(String name, String alpha2Code, String alpha3Code) {
-        Response resultApiJson = getPostSpecific(REGISTER, name, alpha2Code, alpha2Code);
+        String resultApiJson = getPostSpecific(REGISTER, name, alpha2Code, alpha2Code);
+        final ApiJson apiJson = ApiJson.from(resultApiJson);
+        final NonExistentCountry result = apiJson.getNonExistentCountry();
+        assertEquals(result.getStatus(), Matchers.equalTo(alpha2Code));
+        assertEquals(result.getMessage(), Matchers.equalTo(alpha3Code));
     }
 }
 
