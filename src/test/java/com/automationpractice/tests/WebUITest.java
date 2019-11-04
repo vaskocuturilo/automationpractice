@@ -2,10 +2,13 @@ package com.automationpractice.tests;
 
 import base.BaseWeb;
 import io.qameta.allure.Story;
+import listener.AllureScreenShooter;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
 import pages.LandingPage;
 import pages.SortValues;
 
+@Listeners(AllureScreenShooter.class)
 public class WebUITest extends BaseWeb {
 
     private static final String CRED_USER = "Anton Smirnov";
@@ -63,7 +66,6 @@ public class WebUITest extends BaseWeb {
                 .clickContactUs()
                 .fillTheFormContactUs()
                 .checkThatMessageIsSend();
-
     }
 
     @Test

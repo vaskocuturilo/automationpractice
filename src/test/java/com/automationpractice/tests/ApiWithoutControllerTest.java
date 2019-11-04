@@ -57,13 +57,13 @@ public class ApiWithoutControllerTest extends BaseApi {
 
     @Test(dataProvider = "nonExistentCountry", dataProviderClass = DataProviders.class)
     @Story("GET non existent country from https://restcountries.eu/rest/v2/aplha")
-    public void testRequestWithNonExistentCountry(String nonExistentCountry, String statusCode, String message) {
+    public void testRequestWithNonExistentCountry(String nonExistentCountry, int statusCode, String message) {
         final String resultApiJson = getNonExistentCountry(GET_ALPHA_CODE, nonExistentCountry);
         final ApiJson apiJson = ApiJson.from(resultApiJson);
         final NonExistentCountry result = apiJson.getNonExistentCountry();
 
-        assertEquals(result.getStatus(), Matchers.equalTo(statusCode));
-        assertEquals(result.getMessage(), Matchers.equalTo(message));
+        assertEquals(result.getStatus(), statusCode);
+        assertEquals(result.getMessage(), message);
     }
 
     @Test

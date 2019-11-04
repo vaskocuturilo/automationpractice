@@ -35,7 +35,7 @@ public final class DataProviders {
     @DataProvider(name = "nonExistentCountry")
     public static Object[][] nonExistentCountry() {
         return new Object[][]{
-                {"RR", "404", "Not Found"},
+                {"RR", 404, "Not Found"},
         };
     }
 }
