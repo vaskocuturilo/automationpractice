@@ -1,6 +1,9 @@
 package base;
 
+import browser.Remote;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selenide;
+import environment.Environments;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Optional;
@@ -38,8 +41,12 @@ public class BaseWeb {
     @Parameters({"env", "browser"})
     @BeforeMethod(alwaysRun = true)
     public void beforeTest(@Optional("uat") final String env, @Optional("chrome") final String browser) {
-        selectBrowser(browser);
-        clearBrowserCache();
+        if (Environments.isUnix()) {
+            Configuration.browser = Remote.class.getName();
+        } else {
+            selectBrowser(browser);
+            clearBrowserCache();
+        }
         switch (env) {
             case "uat":
                 baseUrl = loadProperty("BASE_URL");

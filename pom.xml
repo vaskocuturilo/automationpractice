@@ -21,6 +21,7 @@
         <aspectj.version>1.8.10</aspectj.version>
         <allure-testng.version>2.6.0</allure-testng.version>
         <allure.results.directory>${project.build.directory}/allure-results</allure.results.directory>
+        <selenoid.url>http://127.0.0.1:4444/wd/hub</selenoid.url>
     </properties>
     <build>
         <plugins>
