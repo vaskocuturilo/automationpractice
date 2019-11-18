@@ -21,9 +21,9 @@ public class Remote implements WebDriverProvider {
     @Override
     public WebDriver createDriver(final DesiredCapabilities capabilities) {
         capabilities.setBrowserName("chrome");
-        capabilities.setCapability("enableVNC", true);
+        capabilities.setCapability("enableVNC", false);
         capabilities.setCapability(ChromeOptions.CAPABILITY, Chrome.getChromeOptions());
-        capabilities.setCapability("screenResolution", "1340x768x24");
+        capabilities.setCapability("screenResolution", "1920x1080x24");
         try {
             return new RemoteWebDriver(getGridHubUrl(), capabilities);
         } catch (Exception e) {
