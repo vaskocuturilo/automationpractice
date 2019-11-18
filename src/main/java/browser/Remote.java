@@ -9,12 +9,19 @@ import org.openqa.selenium.remote.RemoteWebDriver;
 import java.net.MalformedURLException;
 import java.net.URL;
 
+import static utils.PropertiesReader.loadProperty;
+
+
+/**
+ * The class Remote.
+ */
 public class Remote implements WebDriverProvider {
 
     @SuppressWarnings("deprecation")
     @Override
-    public WebDriver createDriver(DesiredCapabilities capabilities) {
+    public WebDriver createDriver(final DesiredCapabilities capabilities) {
         capabilities.setBrowserName("chrome");
+        capabilities.setCapability("enableVNC", true);
         capabilities.setCapability(ChromeOptions.CAPABILITY, Chrome.getChromeOptions());
         capabilities.setCapability("screenResolution", "1920x1080x24");
         try {
@@ -26,10 +33,13 @@ public class Remote implements WebDriverProvider {
         return null;
     }
 
+    /**
+     * The private method for run Grid .
+     */
     private static URL getGridHubUrl() {
         URL hostURL = null;
         try {
-            hostURL = new URL(System.getProperty("selenoid.url", "http://127.0.0.1:4444/wd/hub"));
+            hostURL = new URL(System.getProperty("selenoid.url", loadProperty("LOCAL")));
         } catch (MalformedURLException e) {
             e.printStackTrace();
         }
