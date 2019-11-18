@@ -21,6 +21,6 @@ public final class Environments {
      */
     public static boolean isCheckOSSystem() {
         final String nameSystem = System.getProperty("os.name").toLowerCase();
-        return (nameSystem.contains("Unix") || nameSystem.contains("Linux"));
+        return (nameSystem.contains("nix") || nameSystem.contains("nux"));
     }
 }
