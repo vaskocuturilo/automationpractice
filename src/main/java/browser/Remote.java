@@ -21,7 +21,7 @@ public class Remote implements WebDriverProvider {
     @Override
     public WebDriver createDriver(final DesiredCapabilities capabilities) {
         capabilities.setBrowserName("chrome");
-        capabilities.setCapability("enableVNC", false);
+        capabilities.setCapability("enableVNC", true);
         capabilities.setCapability(ChromeOptions.CAPABILITY, Chrome.getChromeOptions());
         capabilities.setCapability("screenResolution", "1920x1080x24");
         try {
