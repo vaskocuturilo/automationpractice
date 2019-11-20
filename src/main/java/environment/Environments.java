@@ -1,5 +1,6 @@
 package environment;
 
+import java.util.Locale;
 
 /**
  * The class Environments.
@@ -20,7 +21,7 @@ public final class Environments {
      * @return the boolean.
      */
     public static boolean isCheckOSSystem() {
-        final String nameSystem = System.getProperty("os.name").toLowerCase();
+        final String nameSystem = System.getProperty("os.name").toLowerCase(Locale.ROOT);
         return (nameSystem.contains("nix") || nameSystem.contains("nux"));
     }
 }
