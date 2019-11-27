@@ -41,7 +41,7 @@ public class BaseWeb {
     @Parameters({"env", "browser"})
     @BeforeMethod(alwaysRun = true)
     public void beforeTest(@Optional("uat") final String env, @Optional("chrome") final String browser) {
-        if (Environments.isCheckOSSystem()) {
+        if (Environments.isCheckOperatingSystem()) {
             Configuration.browser = Remote.class.getName();
         } else {
             selectBrowser(browser);
