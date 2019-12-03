@@ -9,7 +9,12 @@ import org.testng.reporters.ExitCodeListener;
  */
 public class AllureScreenShooter extends ExitCodeListener {
 
-    public void onTestFailure(ITestResult result) {
+    /**
+     * Method onTestFailure.
+     *
+     * @param result this is ITestResult.
+     */
+    public void onTestFailure(final ITestResult result) {
         super.onTestFailure(result);
         AllureHelpers.takeScreenshot();
 
