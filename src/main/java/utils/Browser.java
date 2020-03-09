@@ -1,5 +1,7 @@
 package utils;
 
+import browser.Chrome;
+import browser.Firefox;
 import com.codeborne.selenide.Configuration;
 import io.github.bonigarcia.wdm.ChromeDriverManager;
 import io.github.bonigarcia.wdm.DriverManagerType;
@@ -33,11 +35,9 @@ public final class Browser {
         Configuration.browserSize = BROWSER_SIZE;
 
         if ("chrome".equalsIgnoreCase(browser)) {
-            Configuration.browser = "Chrome";
-            ChromeDriverManager.getInstance(DriverManagerType.CHROME).setup();
+            Configuration.browser = Chrome.class.getName();
         } else if ("firefox".equalsIgnoreCase(browser)) {
-            Configuration.browser = "firefox";
-            ChromeDriverManager.getInstance(DriverManagerType.FIREFOX).setup();
+            Configuration.browser = Firefox.class.getName();
         } else if ("opera".equalsIgnoreCase(browser)) {
             Configuration.browser = "opera";
             ChromeDriverManager.getInstance(DriverManagerType.OPERA).setup();
