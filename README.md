@@ -1,5 +1,17 @@
 ## http://automationpractice.com and https://restcountries.eu
 
+## Requirements:
+- Use any *object-oriented language* .
+- Use Selenium WebDriver/Selenide for web interactions
+- Use REST Assured for API interactions
+- Use automation patterns like *PageObject*, *data-driven* tests, etc.
+- Use any testing frameworks. 
+- provide code and clear instructions how to run it.
+
+**Note**: please put your code in public repository.
+
+**Note**: Please send link to this repo when you are done.
+
 You will need the following technologies available to try it out:
 * Git
 * Maven 3+
