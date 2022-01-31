@@ -9,6 +9,7 @@ import org.openqa.selenium.remote.DesiredCapabilities;
 
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 
@@ -43,12 +44,12 @@ public class Chrome implements WebDriverProvider {
 
         WebDriverManager.chromedriver().setup();
         capabilities.setCapability(ChromeOptions.CAPABILITY, getChromeOptions());
-
         try {
-            return new ChromeDriver(capabilities);
+            return new ChromeDriver(getChromeOptions());
         } catch (Exception ex) {
-
-            LOG.info(String.valueOf(ex));
+            if (LOG.isLoggable(Level.INFO)) {
+                LOG.info(String.valueOf(ex));
+            }
         }
         return null;
     }
